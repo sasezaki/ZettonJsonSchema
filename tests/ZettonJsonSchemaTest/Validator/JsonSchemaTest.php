@@ -1,8 +1,7 @@
 <?php
-namespace ZettonTest\JsonSchema\Validator;
+namespace ZettonJsonSchemaTest\Validator;
 
-use Zetton\JsonSchema\Validator\JsonSchema;
-
+use ZettonJsonSchema\Validator\JsonSchema;
 
 class JsonSchemaTest extends \PHPUnit_Framework_TestCase
 {

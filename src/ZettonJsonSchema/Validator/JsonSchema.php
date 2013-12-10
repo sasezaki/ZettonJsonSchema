@@ -1,5 +1,5 @@
 <?php
-namespace Zetton\JsonSchema\Validator;
+namespace ZettonJsonSchema\Validator;
 
 use JsonSchema\Validator as JsonSchemaValidator;
 use JsonSchema\Uri\UriRetriever;

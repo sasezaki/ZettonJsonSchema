@@ -1,5 +1,5 @@
 <?php
-namespace Zetton\JsonSchema;
+namespace ZettonJsonSchema;
 
 /**
  * Module class for use with ZF2
@@ -16,7 +16,7 @@ class Module
         
         return array('Zend\Loader\StandardAutoloader' => array(
             'namespaces' => array(
-                __NAMESPACE__ => __DIR__ . '/../../../src/Zetton/JsonSchema',
+                __NAMESPACE__ => __DIR__ . '/../../src/ZettonJsonSchema',
             ),
         ));
     }
@@ -28,7 +28,7 @@ class Module
      */
     public function getConfig()
     {
-        return include __DIR__ . '/../../../config/module.config.php';
+        return include __DIR__ . '/../../config/module.config.php';
     }
 
 }
