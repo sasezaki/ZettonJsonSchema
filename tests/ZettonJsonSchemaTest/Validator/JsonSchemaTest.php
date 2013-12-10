@@ -6,31 +6,27 @@ use ZettonJsonSchema\Validator\JsonSchema;
 class JsonSchemaTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var Digits
+     * @var JsonSchema
      */
     protected $validator;
 
     public function setUp()
     {
         $validator = new JsonSchema;
-        //$validator->setUriRetriever();
-        //$validator->setValidator();
-        $validator->setJsonSchemaUri('file://' . realpath('schema.json'));
+        $validator->setJsonSchemaUri('file://' . realpath(__DIR__.'/_files/schema.default.json'));
 
         $this->validator = $validator;
     }
 
-    public function testA()
+    public function testValidatorShouldHaveMessagesWhenIsNotValid()
     {
-        $this->assertFalse($this->validator->isValid(json_decode('{"value":"Abacate"}')));
+        $this->assertFalse($this->validator->isValid(json_decode('{"foo":"bar"}')));
+        $this->assertNotEmpty($this->validator->getMessages());
     }
 
-
-    /**
-    public function testEqualsMessageTemplates()
+    public function testValidatorShouldHaveNoMessagesWhenIsValid()
     {
-        $validator = $this->validator;
-        $this->assertAttributeEquals($validator->getOption('messageTemplates'),
-                                     'messageTemplates', $validator);
-    }*/
+        $this->assertTrue($this->validator->isValid(json_decode('{"name":"foobar"}')));
+        $this->assertEmpty($this->validator->getMessages());
+    }
 }
